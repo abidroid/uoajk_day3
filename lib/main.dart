@@ -5,6 +5,7 @@ import 'package:uoajk_day3/screens/dynamic_listview_screen.dart';
 import 'package:uoajk_day3/screens/gridview_demo_screen.dart';
 import 'package:uoajk_day3/screens/listview_demo_screen.dart';
 import 'package:uoajk_day3/screens/stateful_demo_screen.dart';
+import 'package:uoajk_day3/screens/user_input_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: StatefulDemoScreen(),
+      home: UserInputScreen(),
     );
   }
 }
