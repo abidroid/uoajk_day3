@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class StatefulDemoScreen extends StatefulWidget {
@@ -10,15 +8,14 @@ class StatefulDemoScreen extends StatefulWidget {
 }
 
 class _StatefulDemoScreenState extends State<StatefulDemoScreen> {
-
   // initial state
+  // state variables
   String message = "Chacha";
   Color bgColor = Colors.brown;
-  bool switchStatus = false;
+  bool switchStatus = true;
 
   @override
   void initState() {
-
     super.initState();
   }
 
@@ -27,49 +24,61 @@ class _StatefulDemoScreenState extends State<StatefulDemoScreen> {
     print('build executed');
     return Scaffold(
       backgroundColor: bgColor,
-        appBar: AppBar(
-          title: const Text('Stateful Demo'),
-          backgroundColor: Colors.deepOrange,
-        ),
+      appBar: AppBar(
+        title: const Text('Stateful Demo'),
+        backgroundColor: Colors.deepOrange,
+      ),
 
-      body: Column(children: [
-        Text(message),
-        ElevatedButton(onPressed: (){
+      body: Column(
+        children: [
+          Text(message),
+          ElevatedButton(
+            onPressed: () {
+              message = "AJK";
 
-          message = "AJK";
+              setState(() {});
+            },
+            child: const Text('Change'),
+          ),
 
-          setState(() {
+          ElevatedButton(
+            onPressed: () {
+              bgColor = Colors.red;
+              setState(() {});
+            },
+            child: const Text("Red"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              bgColor = Colors.green;
+              setState(() {});
+            },
+            child: const Text("Green"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              setState(() {
+                bgColor = Colors.blue;
+              });
+            },
+            child: const Text("Blue"),
+          ),
 
-          });
+          Switch(
+            value: switchStatus,
+            onChanged: (isChecked) {
+              switchStatus = isChecked;
+              setState(() {});
+            },
+          ),
 
-        }, child: const Text('Change')),
-
-        ElevatedButton(onPressed: (){
-          bgColor = Colors.red;
-          setState(() {
-
-          });
-        }, child: const Text("Red")),
-        ElevatedButton(onPressed: (){
-          bgColor = Colors.green;
-          setState(() {
-
-          });
-        }, child: const Text("Green")),
-        ElevatedButton(onPressed: (){
-
-          setState(() {
-            bgColor = Colors.blue;
-          });
-        }, child: const Text("Blue")),
-
-        Switch(value: switchStatus, onChanged: (isChecked){
-          switchStatus = isChecked;
-          setState(() {
-
-          });
-        }),
-      ],),
+          Icon(
+            Icons.lightbulb,
+            size: 100,
+            color: switchStatus ? Colors.amber : Colors.black,
+          ),
+        ],
+      ),
     );
   }
 }
