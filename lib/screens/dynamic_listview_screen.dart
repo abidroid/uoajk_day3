@@ -9,22 +9,7 @@ class DynamicListviewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Hard Coded
-    List<String> friends = [
-      'Ali',
-      'Bilal',
-      'Hina',
-      'Gia',
-      'Zia',
-      'Batoor',
-      'Sardar Khan',
-      'Ali',
-      'Bilal',
-      'Hina',
-      'Gia',
-      'Zia',
-      'Batoor',
-      'Sardar Khan',
-    ];
+
 
     List<Doctor> doctors = [
       Doctor(
