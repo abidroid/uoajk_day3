@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:uoajk_day3/screens/doctor_detail_screen.dart';
 
 import '../models/doctor.dart';
 
@@ -83,21 +84,29 @@ class DynamicGridviewScreen extends StatelessWidget {
 
 
 
-          return Card(
-            color: Colors.green[100],
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 5,
-              children: [
-                CircleAvatar(
-                  radius: 50,
-                  backgroundImage: AssetImage(doctor.photo),
-                ),
+          return InkWell(
+            onTap: (){
 
-                Text(doctor.name),
-                Text(doctor.spe),
-                Text(doctor.fee.toString()),
-              ],
+              Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                return DoctorDetailScreen(doctor: doctor);
+              }));
+            },
+            child: Card(
+              color: Colors.green[100],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 5,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage(doctor.photo),
+                  ),
+
+                  Text(doctor.name),
+                  Text(doctor.spe),
+                  Text(doctor.fee.toString()),
+                ],
+              ),
             ),
           );
 
